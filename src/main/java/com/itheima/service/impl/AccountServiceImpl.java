@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
  *  和生命周期相关 了解
  *      他们的作用就和在bean标签中使用init-method和destroy-methode的作用是一样的
  */
-@Component
+@Component("accountService")
 public class AccountServiceImpl implements IAccountService {
 
     private IAccountDao accountDao;

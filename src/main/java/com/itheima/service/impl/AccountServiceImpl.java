@@ -47,13 +47,14 @@ import org.springframework.stereotype.Component;
 public class AccountServiceImpl implements IAccountService {
 
     @Autowired//自动按照类型注入,去容器中找,然后匹配类型
-    private IAccountDao accountDao2=null;
+    @Qualifier("accountDao2")
+    private IAccountDao accountDao=null;
 
     public AccountServiceImpl() {
         System.out.println("AccountServiceImpl对象创建了-------");
     }
 
     public void  saveAccount(){
-        accountDao2.saveAccount();
+        accountDao.saveAccount();
     }
 }

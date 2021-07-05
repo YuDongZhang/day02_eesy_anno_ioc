@@ -3,6 +3,7 @@ package com.itheima.service.impl;
 import com.itheima.dao.IAccountDao;
 import com.itheima.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -46,13 +47,13 @@ import org.springframework.stereotype.Component;
 public class AccountServiceImpl implements IAccountService {
 
     @Autowired//自动按照类型注入,去容器中找,然后匹配类型
-    private IAccountDao accountDao1=null;
+    private IAccountDao accountDao2=null;
 
     public AccountServiceImpl() {
         System.out.println("AccountServiceImpl对象创建了-------");
     }
 
     public void  saveAccount(){
-        accountDao1.saveAccount();
+        accountDao2.saveAccount();
     }
 }

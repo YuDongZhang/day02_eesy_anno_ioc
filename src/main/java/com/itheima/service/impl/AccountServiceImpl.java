@@ -49,6 +49,12 @@ import javax.annotation.Resource;
  *       以上三个注入都只能注入其他bean类型的数据，而基本类型和String类型无法使用上述注解实现。
  *       另外，集合类型的注入只能通过XML来实现。
  *
+ *     Value
+ *           作用：用于注入基本类型和String类型的数据
+ *           属性：
+ *               value：用于指定数据的值。它可以使用spring中SpEL(也就是spring的el表达式）
+ *                       SpEL的写法：${表达式}
+ *
  * 用于改变作用范围的
  *      他们的作用就和在bean标签中使用scope属性实现的功能是一样的
  *

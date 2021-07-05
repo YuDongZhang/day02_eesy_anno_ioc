@@ -7,20 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import java.util.List;
-
+@Service("accountService")
 public class AccountServiceImpl implements IAccountService {
 
+    @Autowired
     private IAccountDao accountDao;
-
-    //这个是为了 set 方法的注入
-    public void setAccountDao(IAccountDao accountDao) {
-        this.accountDao = accountDao;
-    }
 
     public List<Account> findAllAccount() {
         return accountDao.findAllAccount();

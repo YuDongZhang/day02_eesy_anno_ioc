@@ -1,4 +1,4 @@
-package test;
+package com.itheima.test;
 
 import com.itheima.domain.Account;
 import com.itheima.service.IAccountService;
@@ -40,7 +40,8 @@ public class AccountServiceTest {
         //2,得到对象
         IAccountService as = (IAccountService) ac.getBean("accountService");
         Account account = new Account();
-        account.setName("test");
+        account.setId(4);
+        account.setName("com/ithe");
         account.setMoney(12345f);
         //3.执行方法
         as.saveAccount(account);

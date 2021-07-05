@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 /**
@@ -66,15 +68,29 @@ import javax.annotation.Resource;
  *
  *  和生命周期相关 了解
  *      他们的作用就和在bean标签中使用init-method和destroy-methode的作用是一样的
+ *      PreDestroy
+ *            作用：用于指定销毁方法
+ *      PostConstruct
+ *            作用：用于指定初始化方法
  */
 @Component("accountService")
-@Scope("prototype")
 public class AccountServiceImpl implements IAccountService {
 
 //    @Autowired//自动按照类型注入,去容器中找,然后匹配类型
 //    @Qualifier("accountDao2")
     @Resource(name = "accountDao1")
     private IAccountDao accountDao=null;
+
+    @PostConstruct
+    public void  init(){
+        System.out.println("初始化方法执行了");
+    }
+
+    @PreDestroy
+    public void  destroy(){
+        System.out.println("销毁方法执行了");
+    }
+
 
     public AccountServiceImpl() {
         System.out.println("AccountServiceImpl对象创建了-------");

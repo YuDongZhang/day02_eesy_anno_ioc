@@ -4,6 +4,7 @@ import com.itheima.dao.IAccountDao;
 import com.itheima.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -57,11 +58,17 @@ import javax.annotation.Resource;
  *
  * 用于改变作用范围的
  *      他们的作用就和在bean标签中使用scope属性实现的功能是一样的
+ *      Scope
+ *           作用：用于指定bean的作用范围
+ *           属性：
+ *               value：指定范围的取值。常用取值：singleton prototype
+ *
  *
  *  和生命周期相关 了解
  *      他们的作用就和在bean标签中使用init-method和destroy-methode的作用是一样的
  */
 @Component("accountService")
+@Scope("prototype")
 public class AccountServiceImpl implements IAccountService {
 
 //    @Autowired//自动按照类型注入,去容器中找,然后匹配类型

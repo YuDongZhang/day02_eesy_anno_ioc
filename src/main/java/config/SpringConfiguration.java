@@ -5,6 +5,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import javax.sql.DataSource;
 
@@ -48,6 +49,7 @@ public class SpringConfiguration {
      * @return
      */
     @Bean(name = "runner")//默认是类名,你也可以改名用 name
+    @Scope("prototype")
     public QueryRunner createQueryRunner(DataSource dataSource){
         return new QueryRunner(dataSource);
     }

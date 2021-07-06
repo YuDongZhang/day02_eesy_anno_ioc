@@ -58,7 +58,7 @@ public class SpringConfiguration {
      * 创建数据源对象
      * @return
      */
-    @Bean(name = "dataSource")
+    @Bean(name = "ds2")
     public DataSource createDataSource(){
         try {
             ComboPooledDataSource ds = new ComboPooledDataSource();

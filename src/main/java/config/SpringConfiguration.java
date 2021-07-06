@@ -41,7 +41,7 @@ import javax.sql.DataSource;
  *                  关键字：classpath，表示类路径下
  */
 @Configuration
-@ComponentScan(basePackages = {"com.itheima","config"})
+@ComponentScan(basePackages = "com.itheima")
 public class SpringConfiguration {
     /**
      * 这里准备放一些公共的配置

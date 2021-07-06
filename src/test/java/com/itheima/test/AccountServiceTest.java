@@ -15,7 +15,7 @@ public class AccountServiceTest {
     @Test
     public void testFindAll() {
         //1,获取容器
-        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration.class,JdbcConfig.class);
         //2,得到对象
         IAccountService as = (IAccountService) ac.getBean("accountService");
         //3.执行方法

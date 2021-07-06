@@ -41,49 +41,9 @@ import javax.sql.DataSource;
  *                  关键字：classpath，表示类路径下
  */
 @Configuration
-@ComponentScan(basePackages = "com.itheima")
+@ComponentScan(basePackages = {"com.itheima","config"})
 public class SpringConfiguration {
-
     /**
-     * 用于创建一个QueryRunner对象
-     * @param dataSource
-     * @return
+     * 这里准备放一些公共的配置
      */
-    @Bean(name = "runner")//默认是类名,你也可以改名用 name
-    @Scope("prototype")
-    public QueryRunner createQueryRunner(@Qualifier("ds2") DataSource dataSource){
-        return new QueryRunner(dataSource);
-    }
-
-    /**
-     * 创建数据源对象
-     * @return
-     */
-    @Bean(name = "ds2")
-    public DataSource createDataSource(){
-        try {
-            ComboPooledDataSource ds = new ComboPooledDataSource();
-            ds.setDriverClass("com.mysql.jdbc.Driver");
-            ds.setJdbcUrl("jdbc:mysql://localhost:3306/eesy02");
-            ds.setUser("root");
-            ds.setPassword("root");
-            return ds;
-        }catch (Exception e){
-            throw new RuntimeException();
-        }
-    }
-
-    @Bean(name = "ds1")
-    public DataSource create2DataSource(){
-        try {
-            ComboPooledDataSource ds = new ComboPooledDataSource();
-            ds.setDriverClass("com.mysql.jdbc.Driver");
-            ds.setJdbcUrl("jdbc:mysql://localhost:3306/eesy");
-            ds.setUser("root");
-            ds.setPassword("root");
-            return ds;
-        }catch (Exception e){
-            throw new RuntimeException();
-        }
-    }
 }

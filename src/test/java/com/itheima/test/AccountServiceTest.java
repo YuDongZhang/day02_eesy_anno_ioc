@@ -2,6 +2,7 @@ package com.itheima.test;
 
 import com.itheima.domain.Account;
 import com.itheima.service.IAccountService;
+import config.JdbcConfig;
 import config.SpringConfiguration;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 /**
  * 和spring连接数据库相关的配置类
  */
-@Configuration
 public class JdbcConfig {
     /**
      * 用于创建一个QueryRunner对象

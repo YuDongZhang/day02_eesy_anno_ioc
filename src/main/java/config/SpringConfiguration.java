@@ -3,10 +3,7 @@ package config;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import javax.sql.DataSource;
 
@@ -40,8 +37,9 @@ import javax.sql.DataSource;
  *          value：指定文件的名称和路径。
  *                  关键字：classpath，表示类路径下
  */
-@Configuration
+//@Configuration //默认可不写
 @ComponentScan(basePackages = "com.itheima")
+@Import(JdbcConfig.class)
 public class SpringConfiguration {
     /**
      * 这里准备放一些公共的配置

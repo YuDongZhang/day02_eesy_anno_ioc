@@ -63,6 +63,20 @@ public class SpringConfiguration {
         try {
             ComboPooledDataSource ds = new ComboPooledDataSource();
             ds.setDriverClass("com.mysql.jdbc.Driver");
+            ds.setJdbcUrl("jdbc:mysql://localhost:3306/eesy02");
+            ds.setUser("root");
+            ds.setPassword("root");
+            return ds;
+        }catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    @Bean(name = "ds1")
+    public DataSource create2DataSource(){
+        try {
+            ComboPooledDataSource ds = new ComboPooledDataSource();
+            ds.setDriverClass("com.mysql.jdbc.Driver");
             ds.setJdbcUrl("jdbc:mysql://localhost:3306/eesy");
             ds.setUser("root");
             ds.setPassword("root");

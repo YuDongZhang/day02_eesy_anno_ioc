@@ -40,6 +40,7 @@ import javax.sql.DataSource;
 //@Configuration //默认可不写
 @ComponentScan(basePackages = "com.itheima")
 @Import(JdbcConfig.class)
+@PropertySource("classpath:jdbcConfig.properties")//有包要配置路径
 public class SpringConfiguration {
     /**
      * 这里准备放一些公共的配置

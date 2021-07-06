@@ -2,6 +2,7 @@ package config;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -50,7 +51,7 @@ public class SpringConfiguration {
      */
     @Bean(name = "runner")//默认是类名,你也可以改名用 name
     @Scope("prototype")
-    public QueryRunner createQueryRunner(DataSource dataSource){
+    public QueryRunner createQueryRunner(@Qualifier("ds2") DataSource dataSource){
         return new QueryRunner(dataSource);
     }
 
